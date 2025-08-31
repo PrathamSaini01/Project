@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boston Housing PCA Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>Boston Housing PCA Dashboard</h1>
+  </header>
+
+  <!-- KPI Section -->
+  <section class="kpi-container">
+    <div class="kpi-card">
+      <h2>R² Score</h2>
+      <p class="kpi-value">{{ r2 }}</p>
+    </div>
+    <div class="kpi-card">
+      <h2>Mean Squared Error</h2>
+      <p class="kpi-value">{{ mse }}</p>
+    </div>
+  </section>
+
+  <!-- Graph Section -->
+  <section class="graph-container">
+    <div class="graph-card">
+      <h3>Scree Plot</h3>
+      <img src="data:image/png;base64,{{ scree }}" alt="Scree Plot">
+    </div>
+    <div class="graph-card">
+      <h3>PCA Scatter</h3>
+      <img src="data:image/png;base64,{{ scatter }}" alt="PCA Scatter Plot">
+    </div>
+    <div class="graph-card">
+      <h3>Actual vs Predicted</h3>
+      <img src="data:image/png;base64,{{ predicted }}" alt="Predicted Plot">
+    </div>
+    <div class="graph-card">
+      <h3>Residuals Plot</h3>
+      <img src="data:image/png;base64,{{ residuals }}" alt="Residuals Plot">
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+</body>
+</html>
